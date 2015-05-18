@@ -1,0 +1,50 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+}
+
+order += "ipv6"
+order += "run_watch DHCP"
+order += "ethernet tun0"
+order += "wireless wlp3s0"
+#order += "wireless wwp0s20u4i6" 
+order += "ethernet wwp0s20u4i6" 
+order += "ethernet enp0s25"
+
+wireless wlp3s0 {
+        format_up = "WLAN: (%quality at %essid) %ip"
+        format_down = "WLAN: down"
+}
+
+wireless wwp0s20u4i6 {
+        format_up = "WWAN: (%quality at %essid) %ip"
+        format_down = "WWAN: down"
+}
+
+ethernet enp0s25 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "WIRED: %ip (%speed)"
+        format_down = "WIRED: down"
+}
+
+ethernet wwp0s20u4i6 {
+        format_up = "WWAN: %ip"
+        format_down = "WWAN: down"
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
+}
+
+ethernet tun0 {
+        format_up = "VPN: %ip"
+        format_down = "VPN: down"
+}
