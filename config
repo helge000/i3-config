@@ -34,7 +34,7 @@ bindsym $mod+Return exec roxterm
 bindsym $mod+Tab exec google-chrome
 bindsym $mod+y exec pcmanfm
 bindsym $mod+c exec gnome-calculator
-bindsym $mod+m exec gnome-system-monitor
+bindsym $mod+mexec gnome-system-monitor
 
 
 # kill focused window
@@ -122,6 +122,10 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# scratchpad
+bindsym $mod+i move scratchpad
+bindsym $mod+o scratchpad show
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -162,13 +166,19 @@ bar {
         position top
         font pango:Monospac821 BT Bold 10
         id bar-0
+        mode dock
+        workspace_buttons yes
+        tray_output primary
 }
 
 bar {
         status_command i3status -c ~/.i3/status-net
         position bottom
         font pango:Monospac821 BT Bold 10
-        id bar-1
+        id bar-1i
+        mode dock
+        workspace_buttons no
+        tray_output none
 }
        
 # Start i3bar to display a workspace bar (plus the system information i3status
