@@ -207,7 +207,7 @@ exec --no-startup-id insync start
 
 # screen lock and suspend
 # http://unix.stackexchange.com/questions/149959/how-to-run-systemd-user-service-to-trigger-on-sleep-aka-suspend-hibernate
-exec --no-startup-id xautolock -time 15 -nowlocker "i3lock -t -e -i ~/.i3/lock.png" -locker "systemctl suspend" #-detectsleep # no locknow with -secure
+exec --no-startup-id xautolock -time 10 -locker "i3lock -t -e -i ~/.i3/lock.png" -detectsleep #-locker "systemctl suspend" #-detectsleep # no locknow with -secure
 exec --no-startup-id ~/.i3/bin/systemd-lock-handler ~/.i3/bin/i3lockcmd
 bindsym Ctrl+$mod+l exec xautolock -locknow
 bindsym Ctrl+$mod+s exec systemctl suspend
