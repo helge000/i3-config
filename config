@@ -210,6 +210,7 @@ exec --no-startup-id insync start
 exec --no-startup-id xautolock -time 15 -nowlocker "i3lock -t -e -i ~/.i3/lock.png" -locker "systemctl suspend" #-detectsleep # no locknow with -secure
 exec --no-startup-id ~/.i3/bin/systemd-lock-handler ~/.i3/bin/i3lockcmd
 bindsym Ctrl+$mod+l exec xautolock -locknow
+bindsym Ctrl+$mod+s exec systemctl suspend
 
 # workspace assignments
 assign [class="Google Chrome"] 1-Web
