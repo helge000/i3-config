@@ -1,7 +1,8 @@
 #!/bin/bash
 
 IN="LVDS1"
-EXT="HDMI3"
+#EXT="HDMI3"
+EXT="DP2"
 
 if (xrandr | grep "$EXT disconnected"); then
       xrandr --output $EXT --off --output $IN --auto --primary
