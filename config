@@ -173,7 +173,7 @@ bar {
         id bar-0
         mode dock
         workspace_buttons yes
-        tray_output primary
+#tray_output primary
 }
 
 bar {
