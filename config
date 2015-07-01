@@ -104,24 +104,24 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1-Web
-bindsym $mod+2 workspace 2-Mail
-bindsym $mod+3 workspace 3-Term
-bindsym $mod+4 workspace 4-Virt
-bindsym $mod+5 workspace 5-Dev
-bindsym $mod+6 workspace 6-Rem
+bindsym $mod+1 workspace 1-Mail
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1-Web
-bindsym $mod+Shift+2 move container to workspace 2-Mail
-bindsym $mod+Shift+3 move container to workspace 3-Term
-bindsym $mod+Shift+4 move container to workspace 4-Virt
-bindsym $mod+Shift+5 move container to workspace 5-Dev
-bindsym $mod+Shift+6 move container to workspace 6-Rem
+bindsym $mod+Shift+1 move container to workspace 1-Mail
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
@@ -214,16 +214,16 @@ bindsym Ctrl+$mod+l exec xautolock -locknow
 bindsym Ctrl+$mod+s exec systemctl suspend
 
 # workspace assignments
-assign [class="Google Chrome"] 1-Web
-assign [class="Evolution"] 2-Mail
-assign [class="Thunderbird"] 2-Mail
+#assign [class="Google Chrome"] 1-Web
+#assign [class="Evolution"] 2-Mail
+assign [class="Thunderbird"] 1-Mail
 #assign [class="Roxterm"] 3-Term
-assign [class="Virtualbox"] 4-Virt
-assign [class="Geany"] 5-Dev
-assign [class="geppetto"] 5-Dev
-assign [class="Virtualbox"] 5-Dev
-assign [class="musterConsole"] 7
-assign [class="remmina"] 6-Rem
+#assign [class="Virtualbox"] 4-Virt
+#assign [class="Geany"] 5-Dev
+#assign [class="geppetto"] 5-Dev
+#assign [class="Virtualbox"] 5-Dev
+#assign [class="musterConsole"] 7
+#assign [class="remmina"] 6-Rem
 
 ## Audio controls
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 10%+ unmute
