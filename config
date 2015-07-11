@@ -32,8 +32,8 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec roxterm
-#bindsym $mod+Tab exec google-chrome
-bindsym $mod+Tab exec firefox -new-window
+bindsym $mod+Tab exec google-chrome
+#bindsym $mod+Tab exec firefox -new-window
 bindsym $mod+y exec thunar
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+m exec gnome-system-monitor
@@ -191,13 +191,13 @@ bar {
 # Startup programs
 exec --no-startup-id nm-applet
 #exec --no-startup-id google-chrome
-exec --no-startup-id firefox
+#exec --no-startup-id firefox
 #exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/drdoom.jpg
 # solid color:
 # exec --no-startup-id xsetroot -solid "#333333"
 exec --no-startup-id nitrogen --restore
-#exec --no-startup-id gnome-keyring-daemon --daemonize --start
-#exec --no-startup-id gnome-settings-daemon 
+exec --no-startup-id gnome-keyring-daemon --daemonize --start
+exec --no-startup-id gnome-settings-daemon 
 #exec evolution
 exec thunderbird
 #exec roxterm
