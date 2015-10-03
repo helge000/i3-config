@@ -200,7 +200,7 @@ exec thunderbird
 #exec roxterm
 #exec --no-startup-id parcellite
 #exec --no-startup-id remmina --gapplication-service
-#exec --no-startup-id insync start
+exec --no-startup-id insync start
 #exec --no-startup-id /usr/bin/compton -b
 
 # compton
@@ -208,7 +208,7 @@ exec thunderbird
 
 # screen lock and suspend
 # http://unix.stackexchange.com/questions/149959/how-to-run-systemd-user-service-to-trigger-on-sleep-aka-suspend-hibernate
-exec --no-startup-id xautolock -time 15 -nowlocker "/usr/bin/xlock -mode life" -detectsleep -locker "systemctl suspend" #-detectsleep # no locknow with -secure
+exec --no-startup-id xautolock -time 20 -locker "systemctl suspend" #-detectsleep # no locknow with -secure
 #exec --no-startup-id ~/.i3/bin/systemd-lock-handler ~/.i3/bin/i3lockcmd
 bindsym Ctrl+$mod+l exec xautolock -locknow
 bindsym Ctrl+$mod+s exec systemctl suspend
