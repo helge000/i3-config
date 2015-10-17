@@ -1,10 +1,14 @@
+# source: https://bbs.archlinux.org/viewtopic.php?pid=1170536#p1170536 by 65kid
+#
 [Unit]
-Description=Lock X session
+Description=Lock screens with xlock
 Before=sleep.target
 
 [Service]
+User=daniel
+Type=simple
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/loginctl lock-sessions
+ExecStart=/usr/bin/xlock -mode life
 
 [Install]
-WantedBy=suspend.target
+WantedBy=sleep.target

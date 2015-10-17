@@ -166,33 +166,22 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh
-        position top
-        mode dock
-#        status_command ~/.i3/lemonbar/i3_lemonbar.sh 
-#        font pango:PowerlineFont 12
-}
-#bar {
-#        status_command i3status -c ~/.i3/status-misc
-#        position top
-#        font pango:Monospac821 BT Bold 10
-#        id bar-0
-#        mode dock
-#        workspace_buttons yes
-#        tray_output primary
-#}
 
+# Network bar with tray icons
 bar {
         status_command i3status -c ~/.i3/status-net
         position bottom
         font pango:Literation Mono Powerline 10
-        id bar-1
         mode dock
         workspace_buttons no
-        tray_output primary
+#        tray_output primary
 }
-      
+
+# lemonbar, needs to second; breaks tray otherwise
+bar {
+        i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh
+}
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 
 # Startup programs
@@ -215,7 +204,7 @@ exec --no-startup-id insync start
 
 # screen lock and suspend
 # http://unix.stackexchange.com/questions/149959/how-to-run-systemd-user-service-to-trigger-on-sleep-aka-suspend-hibernate
-exec --no-startup-id xautolock -time 15 -nowlocker "/usr/bin/xlock -mode life" -detectsleep -locker "systemctl suspend" #-detectsleep # no locknow with -secure
+exec --no-startup-id xautolock -time 15 -nowlocker "/usr/bin/xlock -mode life" -locker "systemctl suspend" #-detectsleep # no locknow with -secure
 #exec --no-startup-id ~/.i3/bin/systemd-lock-handler ~/.i3/bin/i3lockcmd
 bindsym Ctrl+$mod+l exec xautolock -locknow
 bindsym Ctrl+$mod+s exec systemctl suspend
