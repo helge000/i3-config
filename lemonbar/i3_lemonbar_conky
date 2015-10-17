@@ -1,0 +1,26 @@
+# Conky for external bar 
+# out simple text to console
+
+background no
+update_interval 2
+total_run_times 0
+override_utf8_locale yes
+short_units yes
+uppercase no
+out_to_console yes
+out_to_x no
+if_up_strictness address
+format_human_readable true
+
+TEXT
+SYS \
+${time %d %b %H:%M} \
+${loadavg 1} \
+${mem} \
+${fs_free /} \
+${battery_short} \
+${if_up wlp3s0}${downspeedf wlp3s0} ${upspeedf wlp3s0} \
+${else}down down${endif} \
+${if_up enp0s25}${downspeedf enp0s25} ${upspeedf enp0s25} \
+${else}down down${endif} \
+${time %a} \ 
