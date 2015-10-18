@@ -197,10 +197,9 @@ exec thunderbird
 exec --no-startup-id parcellite
 #exec --no-startup-id remmina --gapplication-service
 exec --no-startup-id insync start
-#exec --no-startup-id /usr/bin/compton -b
 
-# compton
-#exec compton -b --vsync drm
+# compton, no shaddows, daemonize
+exec compton -CGb --backend glx --vsync opengl
 
 # screen lock and suspend
 # http://unix.stackexchange.com/questions/149959/how-to-run-systemd-user-service-to-trigger-on-sleep-aka-suspend-hibernate

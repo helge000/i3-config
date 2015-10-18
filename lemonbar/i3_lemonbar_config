@@ -11,8 +11,9 @@ snd_cha=$(amixer get Master | grep "Playback channels:" | awk '{if ($4 == "") {p
 # Alarm settings
 cpu_alert=4                         # % cpu use
 net_alert=5                         # K net use
-bat_alert=20                        # % battary left
+bat_alert=15                        # % battary left
 bat_full=70                         # % charge considered as full 
+bat_critical=7                      # % blink bat background
 
 # update setting, in seconds (conky update in i3_lemonbar_conky
 upd_vol=3                           # Volume update
@@ -68,7 +69,8 @@ icon_contact=""                    # Contact icon
 icon_wsp=""                        # Workspace icon
 icon_batf=""                       # Battery full
 icon_bath=""                       # Battery half
-icon_bate=""                       # Battery empty
+icon_bate=""                       # Battery empty
+icon_batc=""                       # Battery empty
 icon_batchg=""                     # Battery is charging
 icon_load=""                       # Load avagrage
 

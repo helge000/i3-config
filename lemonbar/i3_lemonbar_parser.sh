@@ -52,10 +52,21 @@ while read -r line ; do
       # disk home
       diskh="%{F${color_icon}}${sep_l_left} %{T2}${icon_home}%{F- T1} ${sys_arr[7]}%"
       # bat
-      if [ ${sys_arr[7]%?} -le ${bat_alert} ]; then
+      if [ ${sys_arr[7]%?} -le ${bat_alert} ] && [ ${sys_arr[7]%?} -ge ${bat_critical} ]; then # warning
         bat_cback=${color_bat}; bat_cicon=${color_back}; bat_cfore=${color_fore}; b_icon=${icon_bate}
       elif [ ${sys_arr[7]%?} -le ${bat_full} ] && [ ${sys_arr[7]%?} -gt ${bat_alert} ]; then
         bat_cback=${color_sec_b1}; bat_cicon=${color_icon}; bat_cfore=${color_fore}; b_icon=${icon_bath}
+      # Blink background
+      elif [ ${sys_arr[7]%?} -lt ${bat_critical} ]; then
+        bat_t_file=/tmp/i3_lemonbar${USER}_battfile
+        b_icon=${icon_batc}; bat_cicon=${color_icon}; bat_cfore=${color_fore}
+        if [ -e $bat_t_file ]; then
+          bat_cback=${color_sec_b1}
+          rm $bat_t_file
+        else
+          bat_cback=${color_bat}
+          touch $bat_t_file
+        fi
       else
         bat_cback=${color_sec_b1}; bat_cicon=${color_icon}; bat_cfore=${color_fore}; b_icon=${icon_batf}
       fi
@@ -64,8 +75,7 @@ while read -r line ; do
       else 
         icon_pwr=
       fi
-      bat="%{F${color_sec_b2}}${sep_l_left} %{T2}${icon_bat}%{F${bat_cfore} T1} %{T2}${b_icon} ${icon_pwr} ${sys_arr[7]}"
-      #bat="%{F${bat_cback}}${bat_cicon}%F{${icon_bat}}%{F${bat_cfore} T1} %{T2}${b_icon} ${icon_pwr} ${sys_arr[7]}"
+      bat="%{F${color_sec_b2}}${sep_l_left} %{T2}${icon_bat}%{F${bat_cfore} B${bat_cback}} %{T2}${b_icon} ${icon_pwr} ${sys_arr[7]}"
       # wlan
       if [ "${sys_arr[8]}" == "down" ]; then
         wland_v="×"; wlanu_v="×";
