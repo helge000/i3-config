@@ -18,7 +18,8 @@ ${time %d %b %H:%M} \
 ${loadavg 1} \
 ${mem} \
 ${fs_free /} \
-${battery_short} \
+${cat /sys/class/power_supply/AC/online} \
+${battery_percent} \
 ${if_up wlp3s0}${downspeedf wlp3s0} ${upspeedf wlp3s0} \
 ${else}down down${endif} \
 ${if_up enp0s25}${downspeedf enp0s25} ${upspeedf enp0s25} \

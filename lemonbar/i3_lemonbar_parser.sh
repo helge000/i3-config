@@ -22,7 +22,7 @@ while read -r line ; do
       # 3 = cpu, 
       # 4 = mem, 
       # 5 = disk /, 
-      # 6 = bat charge/disch, 
+      # 6 = 0/1 power_supply online
       # 7 = batt % 
       # 8-9 = up/down wlan, 
       # 10-11 = up/down eth,
@@ -52,12 +52,12 @@ while read -r line ; do
       # disk home
       diskh="%{F${color_icon}}${sep_l_left} %{T2}${icon_home}%{F- T1} ${sys_arr[7]}%"
       # bat
-      if [ ${sys_arr[7]%?} -le ${bat_alert} ] && [ ${sys_arr[7]%?} -ge ${bat_critical} ]; then # warning
+      if [ ${sys_arr[7]} -le ${bat_alert} ] && [ ${sys_arr[7]} -ge ${bat_critical} ]; then # warning
         bat_cback=${color_bat}; bat_cicon=${color_back}; bat_cfore=${color_fore}; b_icon=${icon_bate}
-      elif [ ${sys_arr[7]%?} -le ${bat_full} ] && [ ${sys_arr[7]%?} -gt ${bat_alert} ]; then
+      elif [ ${sys_arr[7]} -le ${bat_full} ] && [ ${sys_arr[7]} -gt ${bat_alert} ]; then
         bat_cback=${color_sec_b1}; bat_cicon=${color_icon}; bat_cfore=${color_fore}; b_icon=${icon_bath}
       # Blink background
-      elif [ ${sys_arr[7]%?} -lt ${bat_critical} ]; then
+      elif [ ${sys_arr[7]} -lt ${bat_critical} ]; then
         bat_t_file=/tmp/i3_lemonbar${USER}_battfile
         b_icon=${icon_batc}; bat_cicon=${color_icon}; bat_cfore=${color_fore}
         if [ -e $bat_t_file ]; then
@@ -70,12 +70,12 @@ while read -r line ; do
       else
         bat_cback=${color_sec_b1}; bat_cicon=${color_icon}; bat_cfore=${color_fore}; b_icon=${icon_batf}
       fi
-      if [ ${sys_arr[6]} == "C" ]; then 
+      if [ ${sys_arr[6]} == "1" ]; then 
         icon_pwr=${icon_batchg}
       else 
-        icon_pwr=
+        icon_pwr=${icon_batdischg}
       fi
-      bat="%{F${color_sec_b2}}${sep_l_left} %{T2}${icon_bat}%{F${bat_cfore} B${bat_cback}} %{T2}${b_icon} ${icon_pwr} ${sys_arr[7]}"
+      bat="%{F${color_sec_b2}}${sep_l_left} %{T2}${icon_bat}%{F${bat_cfore} B${bat_cback}} %{T2}${icon_pwr} ${b_icon} ${sys_arr[7]}%"
       # wlan
       if [ "${sys_arr[8]}" == "down" ]; then
         wland_v="×"; wlanu_v="×";

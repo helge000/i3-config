@@ -7,6 +7,7 @@ font="Literation Mono Powerline:size=11"
 iconfont="FontAwesome:size=13"
 res_w=$(xrandr | grep "current" | awk '{print $8a}')
 snd_cha=$(amixer get Master | grep "Playback channels:" | awk '{if ($4 == "") {printf "%s: Playback", $3} else {printf "%s %s: Playback", $3, $4}}')
+powersupply_state="/sys/class/power_supply/AC/online"
 
 # Alarm settings
 cpu_alert=4                         # % cpu use
@@ -72,5 +73,6 @@ icon_bath=""                       # Battery half
 icon_bate=""                       # Battery empty
 icon_batc=""                       # Battery empty
 icon_batchg=""                     # Battery is charging
+icon_batdischg=""                  # Battery dischaging
 icon_load=""                       # Load avagrage
 

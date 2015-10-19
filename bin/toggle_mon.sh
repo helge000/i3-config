@@ -6,10 +6,12 @@ EXT="DP2"
 
 if (xrandr | grep "$EXT disconnected"); then
       xrandr --output $EXT --off --output $IN --auto --primary
+      killall i3_lemonbar.sh
       i3 restart
       nitrogen --restore
 else
       xrandr --output $IN --off --output $EXT --auto --primary
+      killall i3_lemonbar.sh
       i3 restart
       nitrogen --restore
 fi

@@ -179,7 +179,7 @@ bar {
 
 # lemonbar, needs to second; breaks tray otherwise
 bar {
-        i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh
+        i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh 2>/tmp/lemonbar.out
 }
 
 # Start i3bar to display a workspace bar (plus the system information i3status
