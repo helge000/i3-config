@@ -51,6 +51,8 @@ while read -r line ; do
       diskr="%{F${color_sec_b1}}${sep_left}%{F${color_icon} B${color_sec_b1}} %{T2}${icon_hd}%{F- T1} ${sys_arr[5]}"
       # disk home
       diskh="%{F${color_icon}}${sep_l_left} %{T2}${icon_home}%{F- T1} ${sys_arr[7]}%"
+      # volume
+      vol="%{F${color_sec_b2}}${sep_left}%{F${color_icon} B${color_sec_b2}} %{T2}${icon_vol}%{F- T1} ${sys_arr[13]}"
       # bat
       if [ ${sys_arr[7]} -le ${bat_alert} ] && [ ${sys_arr[7]} -ge ${bat_critical} ]; then # warning
         bat_cback=${color_bat}; bat_cicon=${color_back}; bat_cfore=${color_fore}; b_icon=${icon_bate}
@@ -105,10 +107,6 @@ while read -r line ; do
       ethd="%{F${eth_cback}}${sep_left}%{F${eth_cicon} B${eth_cback}} %{T2}${icon_wired} ${icon_dl}%{F${eth_cfore} T1} ${ethd_v}"
       ethu="%{F${eth_cicon}}${sep_l_left} %{T2}${icon_ul}%{F${eth_cfore} T1} ${ethu_v}"
       ;;
-    VOL*)
-      # Volume
-      vol="%{F${color_sec_b2}}${sep_left}%{F${color_icon} B${color_sec_b2}} %{T2}${icon_vol}%{F- T1} $(echo ${line%??}|cut -c 4-)"
-      ;;
     GMA*)
       # Gmail
       gmail="${line#???}"
@@ -151,8 +149,11 @@ while read -r line ; do
          FOC*)
            wsp="${wsp}%{F${color_head} B${color_wsp}}${sep_right}%{F${color_back} B${color_wsp} T1} ${1#???} %{F${color_wsp} B${color_head}}${sep_right}"
            ;;
-         INA*|URG*|ACT*)
+         INA*|ACT*)
            wsp="${wsp}%{F${color_disable} T1} ${1#???} "
+           ;;
+         URG*)
+           wsp="${wsp}%{F${color_head} B${color_urgent}}${sep_right}%{F${color_icon} B${color_urgent} T1} ${1#???} %{F${color_urgent} B${color_head}}${sep_right}"
            ;;
         esac
         shift
@@ -160,14 +161,14 @@ while read -r line ; do
       ;;
     WIN*)
       # window title
-      title=$(xprop -id ${line#???} | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
+      #title=$(xprop -id ${line#???} | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
       #title="%{F${color_head} B${color_sec_b2}}${sep_right}%{F${color_head} B${color_sec_b2}%{T2} ${icon_prog} %{F${color_sec_b2} B-}${sep_right}%{F- B- T1} ${title}"
-      title="%{F${color_head} B${color_sec_b2}}${sep_right}%{F${color_head} B${color_sec_b2} T2} ${icon_prog} %{F${color_sec_b2} B-}${sep_right}%{F- B- T1} ${title}"
+      title="%{F${color_head} B${color_sec_b2}}${sep_right}%{F${color_head} B${color_sec_b2} T2} ${icon_prog} %{F${color_sec_b2} B-}${sep_right}%{F- B- T1} i3"
       ;;
   esac
 
   # And finally, output
   #printf "%s\n" "%{l}${wsp}${title} %{r}${mpd}${stab}${irc}${stab}${gmail}${stab}${cpu}${stab}${mem}${stab}${diskr}${stab}${diskh}${stab}${wland}${stab}${wlanu}${stab}${ethd}${stab}${ethu}${stab}${vol}${stab}${date}${stab}${time}"
-  printf "%s\n" "%{l}${wsp}${title} %{r}${mpd}${stab}${irc}${stab}${gmail}${stab}${cpu}${stab}${mem}${stab}${diskr}${stab}${bat}${stab}${wland}${stab}${wlanu}${stab}${ethd}${stab}${ethu}${stab}${vol}${stab}${date}${stab}${time}"
+  printf "%s\n" "%{l}${wsp}${title}%{r}${mpd}${stab}${irc}${stab}${gmail}${stab}${cpu}${stab}${mem}${stab}${diskr}${stab}${bat}${stab}${wland}${stab}${wlanu}${stab}${ethd}${stab}${ethu}${stab}${vol}${stab}${date}${stab}${time}"
   #printf "%s\n" "%{l}${wsp}${title}"
 done

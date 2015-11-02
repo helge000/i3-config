@@ -134,7 +134,8 @@ bindsym $mod+o scratchpad show
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec ~/.i3/bin/restart-i3.sh
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -182,7 +183,12 @@ bar {
         i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh 2>/tmp/lemonbar.out
 }
 
-# Start i3bar to display a workspace bar (plus the system information i3status
+#bar {
+#      i3bar_command i3bgbar
+#      bar_id 0
+#      status_command python /usr/share/powerline/i3/powerline-i3.py
+#      font pango:Literation Mono Powerline 12
+#}
 
 # Startup programs
 exec --no-startup-id nm-applet

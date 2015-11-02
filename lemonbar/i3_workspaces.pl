@@ -46,7 +46,7 @@ sub reconnect {
     $i3 = i3($socket_path);
     if (!defined($w)) {
         $w = AnyEvent->timer(
-            after => 3,
+            after => 30,
             cb => sub {
                 die "Connection to i3 timed out. Verify socket path ($socket_path)";
                 exit 1;
