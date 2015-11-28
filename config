@@ -180,7 +180,8 @@ bar {
 
 # lemonbar, needs to second; breaks tray otherwise
 bar {
-        i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh 2>/tmp/lemonbar.out
+#i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh 2>/tmp/lemonbar.out
+      i3bar_command ~/.i3/bin/lifebar
 }
 
 #bar {
