@@ -45,7 +45,7 @@ bindsym $mod+Shift+q xkill
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -p 'Run bin: ' -fn '-xos4-terminus-medium-r-*-*-18-*'
+bindsym $mod+d exec dmenu_run -p 'Run bin: ' -fn '-xos4-terminus-medium-r-*-*-20-*'
 bindsym $mod+Shift+d exec ~/.i3/bin/i3-dmenu-desktop
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -174,22 +174,27 @@ bar {
         position bottom
         font pango:Literation Mono Powerline 10
         mode dock
+        id bar-0
         workspace_buttons no
-#        tray_output primary
+        tray_output primary
+        separator_symbol "  "
 }
 
-# lemonbar, needs to second; breaks tray otherwise
+# Main status bar
 bar {
-#i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh 2>/tmp/lemonbar.out
-      i3bar_command ~/.i3/bin/lifebar
+#      colors {
+#          background #FF1D1F21              # Default background
+#          statusline #FFC5C8C6              # Default foreground
+#      }
+       status_command i3status -c ~/.i3/status-misc
+       position top
+       font pango:Literation Mono Powerline 11 
+       id bar-1
+       mode dock
+       workspace_buttons yes
+       tray_output none
+       separator_symbol "  "
 }
-
-#bar {
-#      i3bar_command i3bgbar
-#      bar_id 0
-#      status_command python /usr/share/powerline/i3/powerline-i3.py
-#      font pango:Literation Mono Powerline 12
-#}
 
 # Startup programs
 exec --no-startup-id nm-applet

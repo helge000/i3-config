@@ -15,25 +15,23 @@ order += "ipv6"
 order += "run_watch DHCP"
 order += "ethernet tun0"
 order += "wireless wlp3s0"
-#order += "wireless wwp0s20u4i6" 
 order += "ethernet wwp0s20u4i6" 
 order += "ethernet enp0s25"
-order += "ethernet enp0s29u1u8u2"
 
 wireless wlp3s0 {
-        format_up = "WLAN: (%quality at %essid) %ip"
-        format_down = "WLAN: down"
+        format_up = "  (%quality at %essid) %ip"
+        format_down = "  "
 }
 
-wireless wwp0s20u4i6 {
-        format_up = "WWAN: (%quality at %essid) %ip"
-        format_down = "WWAN: down"
+ethernet wwp0s20u4i6 {
+        format_up = "  %ip"
+        format_down = "  "
 }
 
 ethernet enp0s25 {
         # if you use %speed, i3status requires root privileges
-        format_up = "WIRED: %ip (%speed)"
-        format_down = "WIRED: down"
+        format_up = " %ip (%speed)"
+        format_down = " "
 }
 
 ethernet enp0s29u1u8u2 {
@@ -42,16 +40,11 @@ ethernet enp0s29u1u8u2 {
         format_down = "USBWIRED: down"
 }
 
-ethernet wwp0s20u4i6 {
-        format_up = "WWAN: %ip"
-        format_down = "WWAN: down"
-}
-
 run_watch DHCP {
         pidfile = "/var/run/dhclient*.pid"
 }
 
 ethernet tun0 {
-        format_up = "VPN: %ip"
-        format_down = "VPN: down"
+        format_up = " %ip"
+        format_down = "  "
 }
