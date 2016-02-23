@@ -19,11 +19,12 @@ order += "tztime local"
 
 battery 0 {
         format = "%status %percentage"
-        format_down = ""
-        status_chr = " "
-        status_bat = " "
-        status_full =  " "
+        format_down = ""
+        status_chr = "   "
+        status_bat = "  "
+        status_full =  "  "
         low_threshold = 14
+        integer_battery_capacity = true
 }
 
 tztime local {
@@ -31,7 +32,7 @@ tztime local {
 }
 
 load {
-        format = " 1:%1min"
+        format = " %1min  %5min  %15min"
 }
 
 disk "/" {
