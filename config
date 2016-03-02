@@ -137,7 +137,7 @@ bindsym $mod+Shift+c reload
 #bindsym $mod+Shift+r restart
 bindsym $mod+Shift+r exec ~/.i3/bin/restart-i3.sh
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -197,30 +197,36 @@ bar {
 }
 
 # Startup programs
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 # solid color:
 # exec --no-startup-id xsetroot -solid "#333333"
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id gnome-keyring-daemon --daemonize --start
-exec --no-startup-id gnome-settings-daemon 
+#exec --no-startup-id nitrogen --restore
+#exec --no-startup-id gnome-keyring-daemon --daemonize --start
+#exec --no-startup-id gnome-settings-daemon 
 #exec evolution
 exec thunderbird
-exec thunar --daemon 
+#exec thunar --daemon 
 #exec roxterm
-exec --no-startup-id parcellite
+#exec --no-startup-id parcellite
 #exec --no-startup-id remmina --gapplication-service
-exec --no-startup-id insync start
+#exec --no-startup-id insync start
 
 # compton, no shaddows, daemonize
-exec compton -CGb --backend glx --vsync opengl
+#exec compton -CGb --backend glx --vsync opengl
 
 # screen lock and suspend
-exec xfce4-power-manager
+#exec xfce4-power-manager
 # http://unix.stackexchange.com/questions/149959/how-to-run-systemd-user-service-to-trigger-on-sleep-aka-suspend-hibernate
-exec --no-startup-id xautolock -time 15 -locker "/usr/bin/xlock -mode life" -detectsleep #-locker "~/.i3/bin/lock_cmd.sh" #-detectsleep # no locknow with -secure
+#exec --no-startup-id xautolock -time 15 -locker "/usr/bin/xlock -mode life" -detectsleep #-locker "~/.i3/bin/lock_cmd.sh" #-detectsleep # no locknow with -secure
 bindsym Ctrl+$mod+l exec xautolock -locknow
 bindsym Ctrl+$mod+s exec systemctl suspend
 
+# xfce4-notify
+for_window [class="Xfce4-notifyd"] floating enable;border none; focus mode_toggle
+# shutdown menu
+bindsym $mod+Shift+e exec xfce4-session-logout
+# # xfce settings
+bindsym $mod+Shift+s exec xfce4-settings-manager
 
 # workspace assignments
 #assign [class="Google Chrome"] 1-Web
