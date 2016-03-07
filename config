@@ -17,7 +17,7 @@ set $configdir ~/.i3
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-font pango:Monospac821 BT 10
+font pango:Literation Mono Powerline 10
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -204,15 +204,16 @@ bar {
 #exec --no-startup-id gnome-keyring-daemon --daemonize --start
 #exec --no-startup-id gnome-settings-daemon 
 #exec evolution
-exec thunderbird
+#exec thunderbird
 #exec thunar --daemon 
 #exec roxterm
 #exec --no-startup-id parcellite
 #exec --no-startup-id remmina --gapplication-service
-#exec --no-startup-id insync start
+exec --no-startup-id insync start
+exec xfsettingsd
 
 # compton, no shaddows, daemonize
-#exec compton -CGb --backend glx --vsync opengl
+exec compton -CGb --backend glx --vsync opengl --xrender-sync
 
 # screen lock and suspend
 #exec xfce4-power-manager
