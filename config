@@ -17,7 +17,7 @@ set $configdir ~/.i3
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-font pango:Literation Mono Powerline 10
+font pango:Literation Mono Powerline 12
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -45,7 +45,7 @@ bindsym $mod+Shift+q xkill
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -p 'Run bin: ' -fn '-xos4-terminus-medium-r-*-*-20-*'
+bindsym $mod+d exec dmenu_run -p 'Run bin: ' -fn '-xos4-terminus-medium-r-*-*-28-*'
 bindsym $mod+Shift+d exec ~/.i3/bin/i3-dmenu-desktop
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -172,7 +172,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status -c ~/.i3/status-net
         position bottom
-        font pango:Literation Mono Powerline 10
+        font pango:Literation Mono Powerline 14
         mode dock
         id bar-0
         workspace_buttons no
@@ -188,7 +188,7 @@ bar {
 #      }
        status_command i3status -c ~/.i3/status-misc
        position top
-       font pango:Literation Mono Powerline 11 
+       font pango:Literation Mono Powerline 14 
        id bar-1
        mode dock
        workspace_buttons yes

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IN="LVDS1"
+IN="eDP1"
 #EXT="HDMI3"
 EXT="DP2"
 
