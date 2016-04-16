@@ -12,8 +12,8 @@ general {
 }
 
 order += "disk /"
-order += "battery 0"
 order += "battery 1"
+order += "battery 0"
 order += "load"
 order += "volume master"
 order += "tztime local"
@@ -24,7 +24,7 @@ battery 0 {
         status_chr = "   "
         status_bat = "  "
         status_full =  "  "
-        low_threshold = 0
+        low_threshold = 14
         integer_battery_capacity = true
 }
 
@@ -34,7 +34,7 @@ battery 1 {
         status_chr = "   "
         status_bat = "  "
         status_full =  "  "
-        low_threshold = 14
+        low_threshold = 0
         integer_battery_capacity = true
 }
 
