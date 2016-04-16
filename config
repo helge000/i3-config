@@ -211,6 +211,7 @@ bar {
 #exec --no-startup-id remmina --gapplication-service
 exec --no-startup-id insync start
 exec xfsettingsd
+exec blueman-applet
 
 # compton, no shaddows, daemonize
 exec compton -CGb --backend glx --vsync opengl --xrender-sync
