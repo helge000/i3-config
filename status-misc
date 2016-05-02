@@ -12,6 +12,7 @@ general {
 }
 
 order += "disk /"
+order += "cpu_temperature 0"
 order += "battery 1"
 order += "battery 0"
 order += "load"
@@ -44,6 +45,7 @@ tztime local {
 
 load {
         format = " %1min  %5min  %15min"
+        max_threshold = "1,0"
 }
 
 disk "/" {
@@ -56,5 +58,11 @@ volume master {
         device = "default"
         mixer = "Master"
         mixer_idx = 0
+}
+
+cpu_temperature 0 {
+        format = " %degrees °C"
+        max_threshold = 60
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
 }
 
