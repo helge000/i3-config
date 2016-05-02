@@ -214,6 +214,7 @@ exec xfsettingsd
 exec blueman-applet
 
 # compton, no shaddows, daemonize
+exec ~/.i3/bin/toggle_mon.sh
 exec compton -CGb --backend glx --vsync opengl --xrender-sync
 
 # screen lock and suspend
