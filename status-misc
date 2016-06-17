@@ -20,22 +20,24 @@ order += "volume master"
 order += "tztime local"
 
 battery 0 {
-        format = "%status %percentage"
+        format = "lc %status %percentage"
         format_down = ""
         status_chr = "   "
         status_bat = "  "
         status_full =  "  "
-        low_threshold = 14
+        low_threshold = 20
+        last_full_capacity = true
         integer_battery_capacity = true
 }
 
 battery 1 {
-        format = "%status %percentage"
+        format = "hc %status %percentage"
         format_down = ""
         status_chr = "   "
         status_bat = "  "
         status_full =  "  "
-        low_threshold = 0
+        low_threshold = 20
+        last_full_capacity = true
         integer_battery_capacity = true
 }
 
@@ -45,7 +47,7 @@ tztime local {
 
 load {
         format = " %1min  %5min  %15min"
-        max_threshold = "1,0"
+        max_threshold = "2,0"
 }
 
 disk "/" {
