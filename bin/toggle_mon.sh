@@ -1,7 +1,7 @@
 #!/bin/bash
 
-IN="eDP1"
-EXT="DP2-2"
+IN="eDP-1"
+EXT="DP-2-2"
 
 if (xrandr | grep "$EXT connected"); then
   xrandr --output $IN --off --output ${EXT} --auto --primary
