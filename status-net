@@ -40,7 +40,7 @@ ethernet enp0s31f6 {
 }
 
 run_watch DHCP {
-        format = " DHCP"
+        format = " DHCP"
         pidfile = "/var/run/dhclient*.pid"
 }
 
