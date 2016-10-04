@@ -214,7 +214,7 @@ exec blueman-applet
 
 # compton, no shaddows, daemonize
 exec ~/.i3/bin/toggle_mon.sh
-exec compton -CGb --backend glx --vsync opengl --xrender-sync
+exec compton -b --config $configdir/compton.conf
 
 # screen lock and suspend
 #exec xfce4-power-manager
