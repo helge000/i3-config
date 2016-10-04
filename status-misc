@@ -51,7 +51,7 @@ load {
 }
 
 disk "/" {
-        format = " %avail"
+        format = " %avail"
 }
 
 volume master {
@@ -63,7 +63,7 @@ volume master {
 }
 
 cpu_temperature 0 {
-        format = " %degrees °C"
+        format = " %degrees°C"
         max_threshold = 60
         path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
 }
