@@ -225,6 +225,7 @@ bindsym Ctrl+$mod+s exec xfce4-session-logout --suspend
 bindsym Ctrl+$mod+h exec xfce4-session-logout --hibernate
 # xfce4-notify
 for_window [class="Xfce4-notifyd"] floating enable;border none; focus mode_toggle
+for_window [window_role="pop-up"] floating enable
 # shutdown menu
 bindsym $mod+Shift+e exec xfce4-session-logout
 # # xfce settings
