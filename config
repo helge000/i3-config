@@ -209,6 +209,8 @@ bar {
 #exec --no-startup-id parcellite
 #exec --no-startup-id remmina --gapplication-service
 exec --no-startup-id insync start
+# Combie batterys to one
+exec $confdir/bin/batcombine.sh
 exec xfsettingsd
 exec blueman-applet
 
