@@ -150,6 +150,7 @@ exec --no-startup-id insync start
 exec xfsettingsd
 exec blueman-applet
 exec gnome-keyring-daemon --daemonize --login
+exec-always --no-startup-id nitrogen --restore
 
 # compton, no shaddows, daemonize
 exec ~/.i3/bin/toggle_mon.sh
