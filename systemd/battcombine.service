@@ -1,0 +1,11 @@
+[Unit]
+Description=Combine Batteries for i3
+
+[Service]
+Type=forking
+ExecStart=/home/daniel/.i3/bin/batcombine.rb
+PIDFile=/home/daniel/.batcombine.pid
+Restart=on-failure
+
+[Install]
+WantedBy=graphical.target
