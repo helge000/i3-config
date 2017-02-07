@@ -38,6 +38,7 @@ def combinebatts(result, nextbatt)
   result.merge!(nextbatt) do |k, o, n|
     case nextbatt[k]
       when Fixnum then o + n
+      when 'Unknown' then o
       else n
     end
   end
