@@ -4,7 +4,7 @@
 set $mod Mod4
 set $configdir ~/.i3
 
-font pango:System San Francisco Display 12
+font pango:System San Francisco Display 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -126,7 +126,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status -c ~/.i3/status-net
         position bottom
-        font pango:Literation Mono Powerline 14
+        font pango:Literation Mono Powerline 12
         mode dock
         id bar-0
         workspace_buttons no
@@ -138,7 +138,7 @@ bar {
 bar {
        status_command i3status -c ~/.i3/status-misc
        position top
-       font pango:Literation Mono Powerline 14 
+       font pango:Literation Mono Powerline 12 
        id bar-1
        mode dock
        workspace_buttons yes
@@ -155,6 +155,9 @@ exec-always --no-startup-id nitrogen --restore
 # compton, no shaddows, daemonize
 exec ~/.i3/bin/toggle_mon.sh
 exec compton -b --config $configdir/compton.conf
+
+# Run buttcombine
+exec systemctl --user start battcombine
 
 bindsym Ctrl+$mod+l exec xautolock -locknow
 bindsym Ctrl+$mod+s exec xfce4-session-logout --suspend

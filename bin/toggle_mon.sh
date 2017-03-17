@@ -8,7 +8,7 @@ if (xrandr | grep "$EXT connected"); then
   i3 restart
   nitrogen --restore
 else
-  xrandr --output ${EXT} --off --output $IN --auto --primary
+  xrandr --output ${EXT} --off --output $IN --auto --primary --scale 0.75x0.75
   i3 restart
   nitrogen --restore
 fi
