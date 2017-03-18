@@ -14,7 +14,6 @@ bindsym $mod+Tab exec google-chrome
 bindsym $mod+y exec thunar
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+m exec gnome-system-monitor
-bindsym Ctrl+$mod+Tab exec $configdir/bin/toggle_mon.sh
 
 # kill focused window
 bindsym $mod+Shift+q xkill
@@ -100,7 +99,7 @@ bindsym $mod+o scratchpad show
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r exec ~/.i3/bin/restart-i3.sh
+bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -150,14 +149,15 @@ exec --no-startup-id insync start
 exec xfsettingsd
 exec blueman-applet
 exec gnome-keyring-daemon --daemonize --login
-exec-always --no-startup-id nitrogen --restore
+
+# Run battcombine
+exec systemctl --user start battcombine
+
+# X, Monitor
+exec systemctl --user start monitor-hotplug
 
 # compton, no shaddows, daemonize
-exec ~/.i3/bin/toggle_mon.sh
 exec compton -b --config $configdir/compton.conf
-
-# Run buttcombine
-exec systemctl --user start battcombine
 
 bindsym Ctrl+$mod+l exec xautolock -locknow
 bindsym Ctrl+$mod+s exec xfce4-session-logout --suspend

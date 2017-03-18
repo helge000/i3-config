@@ -1,0 +1,11 @@
+[Unit]
+Description=Monitor Hotplug for i3
+
+[Service]
+Type=forking
+ExecStart=/home/daniel/.i3/bin/monitor-hotplug.rb
+PIDFile=/home/daniel/.monitor-hotplug.pid
+Restart=always
+
+[Install]
+WantedBy=graphical.target
