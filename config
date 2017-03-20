@@ -183,8 +183,8 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl -q s +50 # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl -q s -50 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
