@@ -5,7 +5,9 @@
 require 'fileutils'
 
 UVEVENTPATH = '/sys/class/power_supply/BAT*'
+ACPATH = '/sys/class/power_supply/AC'
 WAIT_TIME = 5
+DEBUG = false
 OUTPUT_FILE = "#{ENV['HOME']}/.uevent"
 PIDFILE="#{ENV['HOME']}/.batcombine.pid"
 
@@ -42,7 +44,7 @@ def combinebatts(result, nextbatt)
       else n
     end
   end
-  result[:POWER_SUPPLY_PRESENT] = 1 if result[:POWER_SUPPLY_PRESENT] >= 1
+  result[:POWER_SUPPLY_PRESENT] = format_uevent(File.read("#{ACPATH}/uevent"))[:POWER_SUPPLY_ONLINE] 
   result[:POWER_SUPPLY_CAPACITY] = (result[:POWER_SUPPLY_ENERGY_NOW] * 100 / result[:POWER_SUPPLY_ENERGY_FULL]).to_i
   result[:POWER_SUPPLY_VOLTAGE_MIN_DESIGN] = (result[:POWER_SUPPLY_VOLTAGE_MIN_DESIGN] / 2).to_i
   result[:POWER_SUPPLY_POWER_NOW] = (result[:POWER_SUPPLY_POWER_NOW] / 2).to_i
@@ -82,7 +84,7 @@ end
       combinebatts(combined, current)
     end
 
-    write_output combined
+    DEBUG ? (puts combined) : (write_output combined)
 
     sleep WAIT_TIME
   end
