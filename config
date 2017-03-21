@@ -20,7 +20,7 @@ bindsym $mod+Shift+q xkill
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_extended_run
+bindsym $mod+d exec $HOME/.i3/dmenu-extended/dmenu_extended_run
 
 # change focus
 bindsym $mod+j focus left
