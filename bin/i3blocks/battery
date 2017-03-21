@@ -1,15 +1,12 @@
 #!/usr/bin/env ruby
 # Combine batteries to one uvent file for i3bar
-#
+# Uses FontAwesome v4.6.3
+# https://github.com/FortAwesome/Font-Awesome/blob/v4.6.3/fonts/fontawesome-webfont.ttf
 
 require 'fileutils'
 
 UVEVENTPATH = '/sys/class/power_supply/BAT*'
 ACPATH = '/sys/class/power_supply/AC'
-WAIT_TIME = 5
-DEBUG = false
-OUTPUT_FILE = "#{ENV['HOME']}/.uevent"
-PIDFILE="#{ENV['HOME']}/.batcombine.pid"
 
 def to_something(str)
   duck = (Integer(str) rescue Float(str) rescue nil) 
@@ -17,29 +14,26 @@ def to_something(str)
 end
 
 def write_output(content)
-  result = ''
-  content.each do |k,v|
-    result << "#{k}=#{v}\n"
+  str = []
+  content[:POWER_SUPPLY_PRESENT] == 1 ? (str << ' ') : (str << '')
+  str << '' if content[:POWER_SUPPLY_CAPACITY_LEVEL] == 'Full'
+  str << "#{content[:POWER_SUPPLY_CAPACITY]}%"
+  2.times {puts str.join(' ')}
+  case content[:POWER_SUPPLY_CAPACITY]
+    when 0..20 then puts '#FF0000'
+    when 21..40 then puts '#FFAE00'
+    when 41..60 then puts '#FFF600'
+    when 61..95 then puts '#A8FF00'
   end
-  File.open(@output_file, 'w') { |file| file.write(result) }
-end
 
-def startup
-  File.write PIDFILE, @pid
-  Process.detach @pid
-  puts "Forked process PID #{@pid}"
-end
-
-def shutdown
-  File.delete @output_file if File.exist? @output_file
-  File.delete(PIDFILE)
-  exit 0
+  exit 33  if content[:POWER_SUPPLY_CAPACITY] < 4
 end
 
 def combinebatts(result, nextbatt)
   result.merge!(nextbatt) do |k, o, n|
     case nextbatt[k]
       when Fixnum then o + n
+      when 'Full' then o
       when 'Unknown' then o
       else n
     end
@@ -59,35 +53,19 @@ def format_uevent(uevent)
   result
 end
 
-@output_file = ARGV[0] ||= OUTPUT_FILE
+batts = Dir[UVEVENTPATH]
 
-@pid = fork do
+uevent_data = []
+combined = {}
 
-  Signal.trap('INT') do
-    shutdown
-  end
-  Signal.trap('TERM') do
-    shutdown
-  end
-
-  batts = Dir[UVEVENTPATH]
-
-  loop do
-    uevent_data = []
-    combined = {}
-
-    batts.each do |batt|
-      uevent_data << format_uevent(File.read("#{batt}/uevent")) if File.exist? "#{batt}/uevent"
-    end
-
-    uevent_data.each do |current|
-      combinebatts(combined, current)
-    end
-
-    DEBUG ? (puts combined) : (write_output combined)
-
-    sleep WAIT_TIME
-  end
+batts.each do |batt|
+  uevent_data << format_uevent(File.read("#{batt}/uevent")) if File.exist? "#{batt}/uevent"
 end
 
-startup
+uevent_data.each do |current|
+  combinebatts(combined, current)
+end
+
+write_output combined
+
+

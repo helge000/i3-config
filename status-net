@@ -1,6 +1,9 @@
 # i3status configuration file.
 # see "man i3status" for documentation.
 
+# Uses FontAwesome v4.6.3
+# https://github.com/FortAwesome/Font-Awesome/blob/v4.6.3/fonts/fontawesome-webfont.ttf
+
 # It is important that this file is edited as UTF-8.
 # The following line should contain a sharp s:
 # ß

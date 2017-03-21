@@ -135,7 +135,7 @@ bar {
 
 # Main status bar
 bar {
-       status_command i3status -c ~/.i3/status-misc
+       status_command $configdir/i3blocks/i3blocks -c $configdir/i3blocks.conf 
        position top
        font pango:Literation Mono Powerline 12 
        id bar-1
@@ -150,11 +150,8 @@ exec xfsettingsd
 exec blueman-applet
 exec gnome-keyring-daemon --daemonize --login
 
-# Run battcombine
-exec systemctl --user start battcombine
-
 # X, Monitor
-exec systemctl --user start monitor-hotplug
+exec systemctl --user restart monitor-hotplug
 
 # compton, no shaddows, daemonize
 exec compton -b --config $configdir/compton.conf
