@@ -21,7 +21,7 @@ default configuration in an Xfce4 session under X11
 - gnome-keyring-daemon
 - xrandr
 
-#### Desktop applications refenced
+#### Desktop applications referenced
 - roxterm
 - google-chrome
 - thunar
@@ -29,9 +29,12 @@ default configuration in an Xfce4 session under X11
 #### i3blocks
 - sysstat
 
-1. Clone this repository to `~/.i3` or `~./.config/i3`
-2. Build the [i3blocks](https://github.com/vivien/i3blocks) binary
-3. Copy `systemd/monitor-hotplug.service` to `~/.config/systemd` and enable the service
+### Step by step
+
+1. Install additional packages
+2. Clone this repository to `~/.i3` or `~./.config/i3`
+3. Build the [i3blocks](https://github.com/vivien/i3blocks) binary
+4. Copy `systemd/monitor-hotplug.service` to `~/.config/systemd` and enable the service
 `systemctl --user enable monitor-hotplug.service`
-4. Install FontAwesome v4.6.3 [webfont.ttf](https://github.com/FortAwesome/Font-Awesome/blob/v4.6.3/fonts/fontawesome-webfont.ttf)
+5. Install `fontawesome-webfont.ttf` from `fonts/`
 
