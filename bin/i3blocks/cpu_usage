@@ -12,8 +12,8 @@ use utf8;
 use Getopt::Long;
 
 # default values
-my $t_warn = 50;
-my $t_crit = 80;
+my $t_warn = 80;
+my $t_crit = 100;
 my $cpu_usage = -1;
 my $decimals = 2;
 
