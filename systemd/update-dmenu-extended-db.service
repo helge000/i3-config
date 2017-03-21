@@ -1,0 +1,6 @@
+[Unit]
+Description=Updates the database file used by dmenu_extended_run
+
+[Service]
+Type=oneshot
+ExecStart=/home/daniel/.i3/dmenu-extended/dmenu_extended_cache_build
