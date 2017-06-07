@@ -7,7 +7,7 @@ SLEEPSECS = 5
 PIDFILE = File.join ENV['HOME'], '.monitor-hotplug.pid'
 DEBUG = false
 PRECMD = ['xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync', 'xrandr --addmode eDP-1 "1920x1080"']
-POSTCMD = ['nitrogen --restore']
+POSTCMD = ['i3 restart', 'nitrogen --restore']
 IN_APPEND = ' --mode 1920x1080'
 EXT_APPEND = ' --auto --primary'
 DRICARD = 'card0'
@@ -42,8 +42,8 @@ def edidchanged?
     curr_edid << Digest::MD5.file(edid_f).to_s
   end
   puts "Stored EDIDs: #{@edid}\nCurrent EDIDs: #{curr_edid}" if DEBUG
-  unless @edid.sort == curr_edid.sort
-    @edid = curr_edid
+  unless @edid == curr_edid.sort
+    @edid = curr_edid.sort
     puts 'EDIDs changed' if DEBUG
     return true
   end
@@ -79,6 +79,7 @@ end
       xrandr = "xrandr --output #{@external||= 'UDEF'} --off --output #{IN} --primary#{IN_APPEND}"
     end
     execute xrandr
+    sleep 3
     POSTCMD.each do |cmd|
       execute cmd
     end
