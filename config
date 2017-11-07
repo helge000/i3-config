@@ -147,7 +147,7 @@ bar {
 
 exec --no-startup-id insync start
 exec xfsettingsd
-exec blueman-applet
+exec blueberry-tray
 exec gnome-keyring-daemon --daemonize --login
 
 # X, Monitor
