@@ -14,6 +14,7 @@ bindsym $mod+Tab exec google-chrome
 bindsym $mod+y exec thunar
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+m exec gnome-system-monitor
+bindsym $mod+g exec code
 
 # kill focused window
 bindsym $mod+Shift+q xkill
@@ -149,6 +150,10 @@ exec --no-startup-id insync start
 exec xfsettingsd
 exec blueberry-tray
 exec gnome-keyring-daemon --daemonize --login
+exec parcellite
+exec nm-applet
+exec zeal
+exec xpad --no-new
 
 # X, Monitor
 exec systemctl --user restart monitor-hotplug
@@ -163,6 +168,7 @@ bindsym Ctrl+$mod+h exec xfce4-session-logout --hibernate
 # xfce4-notify
 for_window [class="Xfce4-notifyd"] floating enable;border none; focus mode_toggle
 for_window [window_role="pop-up"] floating enable
+for_window [class="Zeal"] floating enable
 
 # shutdown menu
 bindsym $mod+Shift+e exec xfce4-session-logout
@@ -180,8 +186,8 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec brightnessctl -q s +50 # increase screen brightness
-bindsym XF86MonBrightnessDown exec brightnessctl -q s -50 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl s +50 # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl s 50- # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play

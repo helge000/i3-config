@@ -17,7 +17,7 @@ order += "ipv6"
 order += "run_watch DHCP"
 order += "ethernet tun0"
 order += "wireless wlp4s0"
-order += "ethernet ppp0" 
+order += "ethernet wwp0s20f0u2c3" 
 order += "ethernet enp0s31f6"
 
 ipv6 {
@@ -30,7 +30,7 @@ wireless wlp4s0 {
         format_down = "  "
 }
 
-ethernet ppp0 {
+ethernet wwp0s20f0u2c3 {
         format_up = "  %ip"
         format_down = "  "
 }
