@@ -1,37 +1,36 @@
-# Helge's i3 configuration
+# Helge's sway configuration
 
-My personal configuration for the [i3](https://i3wm.org/) Window Manager.
+My personal configuration for the [sway](https://github.com/swaywm/sway) Window Manager.
 
 ![Desktop](desktop.png)
 
 ## Setup
 
-This guide assumes you have i3 installed, are logged in and running i3 with it's 
-default configuration [in an Xfce4 session](https://feeblenerd.blogspot.com/2015/11/pretty-i3-with-xfce.html) under X11
+This guide assumes you have SwayWM installed, are logged in and running sway with it's 
+default configuration.
 
 ### Required additional packages
 *EL/Fedora package names*
 
-#### i3
-- nitrogen
+#### required packages
 - [brighnessctl](http://rpmfind.net/linux/fedora/linux/releases/28/Everything/x86_64/os/Packages/b/brightnessctl-0.3-2.fc28.x86_64.rpm)
-- xfsettingsd
-- blueberry
-- [compton](https://copr.fedorainfracloud.org/coprs/mrbloups/compton/)
+- ~~blueberry~~ (applet not working)
+- ~~[compton](https://copr.fedorainfracloud.org/coprs/mrbloups/compton/)~~
 - alsa-utils
 - [playerctl](https://github.com/acrisci/playerctl)
 - gnome-keyring-daemon
-- xrandr
-- xnote
-- parcellite
-- nm-applet
+- [mako](https://github.com/emersion/mako)
+- ~~xrandr~~
+- ~~xnote~~
+- [clipman](https://github.com/yory8/clipman) / [wl-clipboard](https://github.com/bugaevc/wl-clipboard) / [wofi](https://github.com/petabyteboy/wofi)
+- nm-applet: compiled with [appindicator support](https://src.fedoraproject.org/rpms/network-manager-applet/pull-request/1)
 
 #### Desktop applications referenced
 - roxterm
 - google-chrome
 - thunar
-- Thunderbird
-- Zeal
+- hunderbird-wayland
+- ~~Zeal~~
 
 
 #### i3blocks
