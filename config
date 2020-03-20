@@ -169,6 +169,7 @@ bindsym Ctrl+$mod+h exec xfce4-session-logout --hibernate
 for_window [class="Xfce4-notifyd"] floating enable;border none; focus mode_toggle
 for_window [window_role="pop-up"] floating enable
 for_window [class="Zeal"] floating enable
+for_window [title="Microsoft Teams Notification"] floating enable
 
 # shutdown menu
 bindsym $mod+Shift+e exec xfce4-session-logout
