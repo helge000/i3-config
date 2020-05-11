@@ -1,9 +1,17 @@
 [submodule "i3blocks"]
 	path = i3blocks
 	url = https://github.com/vivien/i3blocks
+        ignore = untracked
 [submodule "dmenu-extended"]
 	path = dmenu-extended
-	url = https://github.com/markjones112358/dmenu-extended.git
+        url = https://github.com/markjones112358/dmenu-extended.git
+        ignore = untracked
 [submodule "networkmanager-dmenu"]
 	path = networkmanager-dmenu
-	url = https://github.com/firecat53/networkmanager-dmenu.git
+        url = https://github.com/firecat53/networkmanager-dmenu.git
+        ignore = untracked
+[submodule "clipman"]
+	path = clipman
+        url = https://github.com/yory8/clipman
+        ignore = untracked
+

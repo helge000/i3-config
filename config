@@ -165,15 +165,15 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-#bindsym $mod+Delete mode "$mode_system"
+bindsym $mod+Delete mode "$mode_system"
 
 #exec insync start
 #exec blueberry-tray
 exec gnome-keyring-daemon --daemonize --login
 
 # Clipboard management
-exec wl-paste -t text --watch clipman store 
-bindsym $mod+c exec ~/go/bin/clipman pick -t wofi
+exec wl-paste -t text --watch $configdir/clipman/clipman store
+bindsym $mod+c exec $configdir/clipman/clipman pick -t wofi
 
 exec nm-applet --indicator
 exec mako --anchor bottom-right
