@@ -23,6 +23,9 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec $configdir/dmenu-extended/dmenu_extended/main.py
 
+# nm-dmenu 
+bindsym $mod+n exec $configdir/networkmanager-dmenu/networkmanager_dmenu
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down

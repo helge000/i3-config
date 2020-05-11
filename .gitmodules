@@ -4,3 +4,6 @@
 [submodule "dmenu-extended"]
 	path = dmenu-extended
 	url = https://github.com/markjones112358/dmenu-extended.git
+[submodule "networkmanager-dmenu"]
+	path = networkmanager-dmenu
+	url = https://github.com/firecat53/networkmanager-dmenu.git
