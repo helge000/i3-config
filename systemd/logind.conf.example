@@ -25,5 +25,5 @@
 
 # test
 # idle: i3 /X11 do not report idle time...:wq
-HandlePowerKey=suspen
+HandlePowerKey=suspend
 HandleLidSwitch=suspend
