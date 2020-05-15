@@ -12,6 +12,13 @@ default configuration.
 ### Required additional packages
 *EL/Fedora package names*
 
+I use the Fedora module `sway:rolling/full`, this takes care of most if the binaries listed below:
+
+```shell
+$ sudo dnf module enable sway
+$ sudo dnf module install sway:rolling/full
+```
+
 #### required packages
 - [brighnessctl](http://rpmfind.net/linux/fedora/linux/releases/28/Everything/x86_64/os/Packages/b/brightnessctl-0.3-2.fc28.x86_64.rpm)
 - ~~blueberry~~ (applet not working)
@@ -46,3 +53,4 @@ default configuration.
 5. Install `fontawesome-webfont.ttf` from `fonts/`
 6. Check [dmenu-extended](https://github.com/MarkHedleyJones/dmenu-extended) dependencies
 
+sudo dnf module install sway:rolling
