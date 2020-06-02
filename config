@@ -9,5 +9,17 @@ font pango:System San Francisco Display 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Workspace names
+set $ws1 1-Mail
+set $ws2 2-Term
+set $ws3 3-Web
+set $ws4 4-Teams
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+
 # load main config files
 include $configdir/config.d/*.config
