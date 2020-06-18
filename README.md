@@ -30,7 +30,7 @@ $ sudo dnf module install sway:rolling/full
 - ~~xrandr~~
 - ~~xnote~~
 - [clipman](https://github.com/yory8/clipman) / [wl-clipboard](https://github.com/bugaevc/wl-clipboard) / [wofi](https://github.com/petabyteboy/wofi)
-- nm-applet: compiled with [appindicator support](https://src.fedoraproject.org/rpms/network-manager-applet/pull-request/1)
+- nm-applet: compiled with [appindicator support](https://bodhi.fedoraproject.org/updates/FEDORA-2020-894d5286b3)
 
 #### Desktop applications referenced
 - roxterm
